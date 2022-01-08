@@ -23,3 +23,17 @@ VALUES
 	(12,'Desenvolvimento Web', '2020-02-05', '2020-08-03'),
 	(13,'Desenvolvimento Web', '2020-11-15', '2021-05-14'),
 	(14,'Análise de Dados', '2020-03-07', '2020-09-03');
+
+CREATE TABLE IF NOT EXISTS public.Alunos
+(
+    id_aluno serial,
+    id_turma integer NOT NULL REFERENCES Turmas (id_turma),
+    email character varying(100) NOT NULL,
+    nome character varying(20) NOT NULL,
+    sobrenome character varying(50) NOT NULL,
+    endereco character varying(255) NOT NULL,
+    telefone character varying(20),
+    data_nascimento date NOT NULL,
+    CONSTRAINT id_key PRIMARY KEY (id_aluno)
+);
+

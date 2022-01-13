@@ -585,3 +585,18 @@ VALUES
 	(14,'ivonneamorim3820@thc.st', 'Ivonne', 'Amorim', '1995-07-28', 'Avenida Assis, 142', '43 5784-6214'),
 	(14,'eronsaraiva1908@bofthew.com', 'Eron', 'Saraiva', '1970-06-05', 'Avenida Nantes, 35', '47 6214-7906'),
 	(14,'albertoluz2907@mailorg.org', 'Alberto', 'Luz', '1979-10-03', 'Rua Barreto, 147', '52 5679-8429');
+
+ALTER TABLE alunos ADD COLUMN trabalhando_na_area boolean;
+
+UPDATE alunos 
+SET trabalhando_na_area = (array[True, False, False, False, False, False, False, False, False, False])[floor(random() * 9 + 1)]
+WHERE id_aluno IN (SELECT id_aluno FROM ALUNOS JOIN turmas
+				   ON alunos.id_turma = turmas.id_turma
+				   WHERE turmas.data_fim > NOW());
+
+UPDATE alunos 
+SET trabalhando_na_area = (array[True, True, True, True, True, True, True, True, False, False])[floor(random() * 9 + 1)]
+WHERE id_aluno IN (SELECT id_aluno FROM ALUNOS JOIN turmas
+				   ON alunos.id_turma = turmas.id_turma
+				   WHERE turmas.data_fim < NOW());
+

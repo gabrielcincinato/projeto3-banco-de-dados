@@ -832,3 +832,17 @@ VALUES
 	(7, 13),
 	(4, 13),
 	(8, 14);
+	
+CREATE TABLE monitores (
+	id_funcionario integer REFERENCES funcionarios (id_funcionario),
+	id_turma integer REFERENCES turmas (id_turma)
+);
+
+INSERT INTO monitores (id_funcionario, id_turma)
+VALUES
+	(61, 12),
+	(62, 13),
+	(61, 14),
+	(63, 12),
+	(64, 13),
+	(64, 14);

@@ -814,3 +814,21 @@ VALUES
 	('gyselleneves3243@tempmailer.de','Gyselle','Neves','TI','ASSISTENTE DE QUALIDADE',2230,'2020-12-01','Avenida Amigo, 113','56 2872-3720','1978-04-09'),
 	('cassiapires5192@spamhereplease.com','Cássia','Pires','TI','ESTAGIÁRIO',3410,'2020-12-01','Rua Souza, 66','42 4300-6938','1992-10-15'),
 	('ciniraluz2697@mailtemp.info','Cinira','Luz','TI','ESTAGIÁRIO',3990,'2020-12-01','Travessa Camargo, 167','68 6704-6667','1993-04-05');
+
+CREATE TABLE facilitadores (
+	id_funcionario integer REFERENCES funcionarios (id_funcionario),
+	id_turma integer REFERENCES turmas (id_turma)
+);
+
+INSERT INTO facilitadores (id_funcionario, id_turma)
+VALUES
+	(1, 12),
+	(1, 14),
+	(2, 13),
+	(3, 12),
+	(4, 12),
+	(5, 12),
+	(6, 13),
+	(7, 13),
+	(4, 13),
+	(8, 14);

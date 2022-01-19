@@ -1,10 +1,22 @@
+CREATE TABLE cursos (
+	nome_curso varchar(100) PRIMARY KEY,
+	qtd_horas integer,
+	qtd_modulos integer
+);
+
+INSERT INTO cursos (nome_curso, qtd_horas, qtd_modulos)
+VALUES
+	('Análise de Dados', 600, 6),
+	('Desenvolvimento Web', 600, 6);
+
 CREATE TABLE IF NOT EXISTS public.Turmas
 (
     id_turma bigserial,
     nome_curso character varying(50) NOT NULL,
     data_inicio date NOT NULL,
     data_fim date NOT NULL,
-    CONSTRAINT id_turma_key PRIMARY KEY (id_turma)
+    CONSTRAINT id_turma_key PRIMARY KEY (id_turma),
+    CONSTRAINT nome_curso_FK FOREIGN KEY (nome_curso) REFERENCES cursos (nome_curso)
 );
 
 INSERT INTO Turmas (id_turma, nome_curso, data_inicio, data_fim)
